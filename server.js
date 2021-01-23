@@ -15,12 +15,15 @@ app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  "mongodb+srv://yyanky:emotions@swiftdesk.fdp9b.mongodb.net/swiftdesk?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully.");
