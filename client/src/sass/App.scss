@@ -1,0 +1,185 @@
+/*FONT WEIGHT
+200,400,700,900
+*/
+
+html {
+  height: 100%;
+}
+
+$purple1: #fef0ff;
+$purple2: #d6c8ff;
+$purple3: #c79ecf;
+$purple4: #7e6bc4;
+$bgcolor: #ffffffc4;
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0;
+  background-image: url("../public/LogoMakr-2u3A7d.png");
+  background-size: 100px 75px;
+  background-attachment: fixed;
+  height: 100%;
+  padding: 100px 10% 100px 10%;
+}
+
+//Error404 ----------------------
+
+.Error404 {
+  text-align: center;
+  padding-top: 100px;
+}
+
+// NAVBAR --------------------------------------------
+div .appNavbar nav {
+  padding: 35px;
+  background-color: rgb(255, 255, 255);
+}
+
+div .navbar-nav {
+  text-align: center;
+}
+
+a.nav-link:hover {
+  color: $purple4 !important;
+}
+
+.logoName {
+  font-size: 2rem !important;
+  font-weight: 400;
+  color: $purple4 !important;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+
+//APP CONTAINER --------------------------------------------
+.appContainer {
+  padding: 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bgcolor;
+}
+//FOOTER ---------------------------------------------------
+.footer {
+  margin-top: 100px;
+  height: 150px;
+  background-color: $purple4;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  padding-top: 50px;
+  color: $purple2;
+  font-weight: 200;
+}
+
+//USER INVENTORY
+div .spinner-border {
+  height: 100px;
+  width: 100px;
+  color: $purple4;
+}
+div .product {
+  padding: 15px;
+}
+.productCard {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 5px;
+  text-align: center;
+}
+.productCard button {
+  background-color: $purple4;
+  border: none;
+  display: block;
+  width: 100%;
+  margin: 10px 0px;
+  padding: 5px;
+  color: #fafafa;
+  font-size: 0.75rem;
+  border-radius: 5px;
+}
+.productCard .delete {
+  background-color: #aa3a3a;
+  border: none;
+  display: block;
+  width: 100%;
+  margin: 10px 0px;
+  padding: 5px;
+  color: #fafafa;
+  font-size: 0.75rem;
+  border-radius: 5px;
+}
+
+.productCard button:focus {
+  outline: none;
+}
+.productCard button:hover {
+  opacity: 0.7;
+}
+
+.productCard .close-btn {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+}
+.productCard .close-btn:hover {
+  cursor: pointer;
+}
+.productCard .close-span {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.productDescription {
+  text-align: justify;
+  padding: 10%;
+}
+.productStocks {
+  color: $purple4;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+div .row {
+  margin: 0;
+}
+
+div .description {
+  height: 100%;
+  width: 100%;
+}
+
+//DASHBOARD ------------------------
+
+.dashboard {
+  background-color: $bgcolor;
+}
+
+.stocks {
+  text-align: center;
+  padding-top: 50px;
+}
+.dashboardh2 {
+  font-weight: 700;
+  text-align: left;
+  margin: 30px 0;
+}
+
+div .container-fluid {
+  padding: 0;
+}
+
+.appContainer hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 3px solid rgba(0, 0, 0, 0.1);
+}
