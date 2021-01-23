@@ -35,7 +35,7 @@ function App() {
             <Route path="/orders" component={Orders} />
             <Route path="/invoices" component={Invoices} />
             <Route path="/inventory" component={UserInventory} />
-            <Route path="*" component={Error404} />
+            {/* <Route path="*" component={Error404} /> */}
           </Switch>
         </div>
       </Router>
