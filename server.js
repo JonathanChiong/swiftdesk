@@ -42,6 +42,6 @@ if (process.env.NODE_ENV == "production") {
 const products = require("./routes/products");
 const userInventory = require("./routes/userInventory");
 const transactions = require(".//routes/transactions");
-app.use("/products", products);
-app.use("/user/inventory", userInventory);
-app.use("/transactions", transactions);
+app.use("/api/products", products);
+app.use("/api/user/inventory", userInventory);
+app.use("/api/transactions", transactions);

@@ -10,7 +10,7 @@ export const fetchOrder = () => {
   return (dispatch) => {
     dispatch(fetchOrderBegin());
     axios
-      .get("/transactions")
+      .get("api/transactions")
       .then((orders) => {
         console.log(orders);
         dispatch(fetchOrderSuccess(orders.data));
