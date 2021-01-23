@@ -36,7 +36,7 @@ export const fetchOrderError = (error) => ({
 export const createOrder = (order) => {
   return (dispatch) => {
     axios
-      .post("/transactions/add", order)
+      .post("api/transactions/add", order)
       .then((response) => {
         dispatch(createOrderSuccess(response.data));
       })

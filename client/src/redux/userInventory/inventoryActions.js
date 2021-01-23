@@ -17,7 +17,7 @@ export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsBegin());
     axios
-      .get("http://localhost:4500/user/inventory/")
+      .get("api/user/inventory/")
       .then((response) => {
         const products = response.data;
         dispatch(fetchProductsSuccess(products));
@@ -43,7 +43,7 @@ export const fetchProductsError = (error) => ({
 export const deleteProduct = (productKey) => {
   return (dispatch) => {
     axios
-      .delete(`http://localhost:4500/user/inventory/delete/${productKey}`)
+      .delete(`api/user/inventory/delete/${productKey}`)
       .then(dispatch(deleteProductSuccess(productKey)));
   };
 };
@@ -58,7 +58,7 @@ export const deleteProductSuccess = (productKey) => ({
 export const createProduct = (product) => {
   return (dispatch) => {
     axios
-      .post(`http://localhost:4500/user/inventory/add/`, product)
+      .post(`api/user/inventory/add/`, product)
       .then((response) => dispatch(createProductSuccess(response.data)))
       .catch((error) => error.message);
   };
@@ -73,10 +73,7 @@ export const createProductSuccess = (product) => ({
 export const updateProduct = (productID, details) => {
   return (dispatch) => {
     axios
-      .patch(
-        `http://localhost:4500/user/inventory/update/${productID}`,
-        details
-      )
+      .patch(`api/user/inventory/update/${productID}`, details)
       .then((response) => dispatch(updateProductSuccess(response.data)));
   };
 };
