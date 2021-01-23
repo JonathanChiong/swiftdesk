@@ -10,7 +10,7 @@ export const fetchOrder = () => {
   return (dispatch) => {
     dispatch(fetchOrderBegin());
     axios
-      .get("transactions/")
+      .get("/transactions")
       .then((orders) => {
         console.log(orders);
         dispatch(fetchOrderSuccess(orders.data));
@@ -36,7 +36,7 @@ export const fetchOrderError = (error) => ({
 export const createOrder = (order) => {
   return (dispatch) => {
     axios
-      .post("transactions/add", order)
+      .post("/transactions/add", order)
       .then((response) => {
         dispatch(createOrderSuccess(response.data));
       })
