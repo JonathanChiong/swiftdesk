@@ -10,7 +10,7 @@ export const fetchOrder = () => {
   return (dispatch) => {
     dispatch(fetchOrderBegin());
     axios
-      .get("http://localhost:4500/transactions/")
+      .get("/transactions/")
       .then((orders) => dispatch(fetchOrderSuccess(orders.data)))
       .catch((error) => dispatch(fetchOrderError(error.message)));
   };
@@ -33,7 +33,7 @@ export const fetchOrderError = (error) => ({
 export const createOrder = (order) => {
   return (dispatch) => {
     axios
-      .post("http://localhost:4500/transactions/add", order)
+      .post("/transactions/add", order)
       .then((response) => {
         dispatch(createOrderSuccess(response.data));
       })
