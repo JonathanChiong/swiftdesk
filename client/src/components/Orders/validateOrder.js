@@ -1,4 +1,4 @@
-export const validateOrder = async (order, products) => {
+export const validateOrder = (order, products) => {
   const foundProducts = {};
 
   //Result array - will contain combined orders
@@ -21,12 +21,13 @@ export const validateOrder = async (order, products) => {
   });
 
   //Check if order quantity exceeds available stocks
+
   for (let el of result) {
     const currentProduct = products.find((i) => i.product === el.product);
     if (el.quantity > currentProduct.stocks) {
       return false;
-    } else {
-      return true;
     }
   }
+
+  return true;
 };
