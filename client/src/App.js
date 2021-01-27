@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchOrder());
+    // dispatch(fetchOrder());
     dispatch(fetchProducts());
   }, []);
 
@@ -31,7 +31,7 @@ function App() {
         <div className="appContainer">
           <Switch>
             <Route path="/" exact component={Dashboard} />
-            <Route path="/orders" component={Orders} />
+            {/* <Route path="/orders" component={Orders} /> */}
             <Route path="/inventory" component={UserInventory} />
             <Route path="*" component={Error404} />
           </Switch>
