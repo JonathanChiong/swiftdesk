@@ -59,7 +59,6 @@ class UserInventory extends Component {
             </Spinner>
           </div>
         )}
-        {console.log(products)}
         <Row>
           {products.map((product) => (
             <Col lg={2} md={6} sm={12} key={product._id} className="product">
