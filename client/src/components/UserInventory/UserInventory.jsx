@@ -61,17 +61,18 @@ class UserInventory extends Component {
         )}
 
         <Row>
-          {products.map((product) => (
-            <Col lg={2} md={6} sm={12} key={product._id} className="product">
-              <Card
-                product={product.product}
-                stocks={product.stocks}
-                basePrice={product.basePrice}
-                sellPrice={product.sellPrice}
-                productId={product._id}
-              />
-            </Col>
-          ))}
+          {products &&
+            products.map((product) => (
+              <Col lg={2} md={6} sm={12} key={product._id} className="product">
+                <Card
+                  product={product.product}
+                  stocks={product.stocks}
+                  basePrice={product.basePrice}
+                  sellPrice={product.sellPrice}
+                  productId={product._id}
+                />
+              </Col>
+            ))}
         </Row>
         <div>
           <hr />
