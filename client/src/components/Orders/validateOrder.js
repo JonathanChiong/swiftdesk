@@ -22,8 +22,8 @@ export const validateOrder = async (order, products) => {
 
   //Check if order quantity exceeds available stocks
   for (let el of result) {
-    const currentProduct = await products.find((i) => i.product === el.product);
-
+    const currentProduct = products.find((i) => i.product === el.product);
+    console.log("validating");
     if (el.quantity > currentProduct.stocks) {
       return false;
     } else {

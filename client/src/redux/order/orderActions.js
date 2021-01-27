@@ -40,6 +40,7 @@ export const createOrder = (order) => {
     axios
       .post("api/transactions/add", order)
       .then((response) => {
+        console.log("action init");
         dispatch(deductStocks(response.data.order));
         dispatch(createOrderSuccess(response.data));
       })
