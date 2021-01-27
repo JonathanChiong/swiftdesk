@@ -5,12 +5,15 @@ import {
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
+  CREATE_PRODUCT_ERROR,
 } from "./inventoryTypes";
+import { DEDUCT_STOCKS } from "../order/orderTypes";
 
 const initialState = {
   loading: false,
   products: [],
   error: "",
+  fetchError: "",
 };
 
 const userInventoryReducer = (state = initialState, action) => {
@@ -30,7 +33,7 @@ const userInventoryReducer = (state = initialState, action) => {
       return {
         loading: false,
         products: [],
-        error: action.payload,
+        fetchError: action.payload,
       };
     case DELETE_PRODUCT:
       return {
@@ -45,6 +48,11 @@ const userInventoryReducer = (state = initialState, action) => {
         ...state,
         products: [...previousProducts, action.payload],
       };
+    case CREATE_PRODUCT_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
     case UPDATE_PRODUCT:
       const updatedProducts = state.products.map((i) => {
         if (i._id === action.payload._id) {
@@ -53,6 +61,20 @@ const userInventoryReducer = (state = initialState, action) => {
         return i;
       });
       return { ...state, products: updatedProducts };
+    case DEDUCT_STOCKS:
+      const updatedstocks = [];
+
+      action.payload.map((item) => {
+        const currProduct = state.products.find(
+          (i) => i.product === item.product
+        );
+        currProduct.stocks = currProduct.stocks - item.quantity;
+        updatedstocks.push(currProduct);
+      });
+      return {
+        ...state,
+        products: updatedstocks,
+      };
 
     default:
       return state;

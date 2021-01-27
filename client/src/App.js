@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Orders } from "./components/Orders/Orders";
 import UserInventory from "./components/UserInventory/UserInventory";
-import Invoices from "./components/Invoices";
 import Error404 from "./components/Error404";
 
 //Import fetch actions
@@ -33,9 +32,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/orders" component={Orders} />
-            <Route path="/invoices" component={Invoices} />
             <Route path="/inventory" component={UserInventory} />
-            {/* <Route path="*" component={Error404} /> */}
+            <Route path="*" component={Error404} />
           </Switch>
         </div>
       </Router>

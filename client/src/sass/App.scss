@@ -183,3 +183,59 @@ div .container-fluid {
   margin-bottom: 2rem;
   border-top: 3px solid rgba(0, 0, 0, 0.1);
 }
+
+// ORDER
+
+.addProductList {
+  max-width: 30%;
+  border: 1px solid rgba(97, 97, 97, 0.596);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.orderSubmit {
+  background-color: #30475e;
+  border: none;
+  padding: 10px;
+  color: #fafafa;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.orderSubmit:focus {
+  outline: none;
+}
+.orderSubmit:hover {
+  opacity: 0.8;
+}
+
+.orderSubmitCancel {
+  background-color: #dddddd;
+  border: none;
+  padding: 10px;
+  color: #30475e;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.orderSubmitCancel:focus {
+  outline: none;
+}
+.orderSubmitCancel:hover {
+  opacity: 0.8;
+}
+.orderAdd {
+  background-color: $purple4;
+  border: none;
+  padding: 5px 15px;
+  color: #fafafa;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-weight: 400;
+}
+
+.orderAdd:focus {
+  outline: none;
+}
+.orderAdd:hover {
+  opacity: 0.8;
+}

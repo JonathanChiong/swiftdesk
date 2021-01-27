@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Col, Row, Accordion, Card, Spinner } from "react-bootstrap";
+import { Col, Row, Accordion, Card, Spinner, Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 export const DashboardOrders = () => {
@@ -8,7 +8,7 @@ export const DashboardOrders = () => {
   return (
     <Fragment>
       <h2 className="dashboardh2">Order history</h2>
-      {orders.error && <h2 style={{ color: "red" }}>{orders.error}</h2>}
+      {orders.error && <Alert variant="warning">{orders.error}</Alert>}
 
       {orders.loading && (
         <div style={{ width: "100%", textAlign: "center", height: "200px" }}>
@@ -28,12 +28,17 @@ export const DashboardOrders = () => {
                     as={Card.Header}
                     eventKey={order.invoice_num}
                   >
-                    Invoice: {order.invoice_num}
+                    <span style={{ float: "right" }}>
+                      <strong>Total: Php {order.subTotal}</strong>
+                    </span>
+                    <span>
+                      <em>Invoice: {order.invoice_num}</em>
+                    </span>
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey={order.invoice_num}>
                     <Card.Body>
-                      {`${order.f_name} ${order.l_name}`}
-                      <br />
+                      <strong>Name: </strong>
+                      {` ${order.f_name} ${order.l_name}`}
                       <br />
                       <strong>Items:</strong>
                       <br />

@@ -1,5 +1,5 @@
 import { Fragment, Component } from "react";
-import { Col, Row, Form, Button, Spinner } from "react-bootstrap";
+import { Col, Row, Form, Alert, Spinner } from "react-bootstrap";
 import { Card } from "./Card";
 
 //Redux
@@ -47,12 +47,11 @@ class UserInventory extends Component {
   };
 
   render() {
-    const { loading, products, error } = this.props;
+    const { loading, products, error, fetchError } = this.props;
 
     return (
       <Fragment>
-        {error && <h1>Error:{error}</h1>}
-
+        {fetchError && <Alert variant="warning">{fetchError}</Alert>}
         {loading && (
           <div style={{ width: "100%", textAlign: "center", height: "200px" }}>
             <Spinner animation="border" role="status">
@@ -76,7 +75,7 @@ class UserInventory extends Component {
         </Row>
         <div>
           <hr />
-          <h3>Add Product</h3>
+          <h2 className="dashboardh2">Add Product</h2>
           <br />
           <Row>
             <Col lg={6} md={12} style={{ padding: 0 }}>
@@ -146,10 +145,11 @@ class UserInventory extends Component {
                   </Form.Row>
                   <br />
                   <br />
-                  <h4 style={{ color: "red" }}>{this.state.error}</h4>
-                  <Button variant="dark" size="md" type="submit">
+                  {error && <Alert variant="danger">{error}</Alert>}
+
+                  <button className="orderSubmit" type="submit">
                     Submit
-                  </Button>
+                  </button>
                 </Form.Group>
               </form>
             </Col>
@@ -164,6 +164,7 @@ const mapStateToProps = (state) => ({
   products: state.products.products,
   loading: state.products.loading,
   error: state.products.error,
+  fetchError: state.products.fetchError,
 });
 
 const mapDispatchToProps = {

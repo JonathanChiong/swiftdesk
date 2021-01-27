@@ -13,10 +13,11 @@ router.route("/").get(async (req, res) => {
 
 router.route("/add").post(async (req, res) => {
   const { product, stocks, basePrice, sellPrice } = req.body;
+  const capsProduct = product.toUpperCase();
 
   try {
     const newProduct = UserInventory({
-      product,
+      product: capsProduct,
       stocks,
       basePrice,
       sellPrice,
@@ -24,7 +25,7 @@ router.route("/add").post(async (req, res) => {
     await newProduct.save();
     res.status(200).json(newProduct);
   } catch (error) {
-    res.status(400).json(`Error ${error}`);
+    res.status(400).json(`Error: Product exists or unable to save`);
   }
 });
 

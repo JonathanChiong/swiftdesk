@@ -8,6 +8,7 @@ import {
   UPDATE_PRODUCT,
   UPDATE_PRODUCT_ERROR,
   CREATE_PRODUCT,
+  CREATE_PRODUCT_ERROR,
 } from "./inventoryTypes";
 
 //ACTIONS---------------------------------------
@@ -60,12 +61,23 @@ export const createProduct = (product) => {
     axios
       .post(`api/user/inventory/add/`, product)
       .then((response) => dispatch(createProductSuccess(response.data)))
-      .catch((error) => error.message);
+      .catch((error) =>
+        dispatch(
+          createProductError(
+            "Save failed. Check if product exists or contact administrator"
+          )
+        )
+      );
   };
 };
 export const createProductSuccess = (product) => ({
   type: CREATE_PRODUCT,
   payload: product,
+});
+
+export const createProductError = (error) => ({
+  type: CREATE_PRODUCT_ERROR,
+  payload: error,
 });
 
 //Update----------------------------------------

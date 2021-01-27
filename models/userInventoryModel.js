@@ -5,6 +5,7 @@ const userInventoryModel = new Schema({
   product: {
     type: String,
     trim: true,
+    unique: true,
   },
   stocks: {
     type: Number,

@@ -6,12 +6,13 @@ const orderSchema = new Schema({
   product: {
     type: String,
     required: true,
+    trim: true,
   },
   quantity: {
     type: Number,
     required: true,
   },
-  subTotal: {
+  price: {
     type: Number,
   },
 });
@@ -21,25 +22,17 @@ const transactionSchema = new Schema(
     f_name: {
       type: String,
       required: true,
+      trim: true,
     },
     l_name: {
       type: String,
+      trim: true,
     },
     invoice_num: {
       type: Number,
       unique: true,
     },
-    order: {
-      type: String,
-      required: true,
-    },
-    quantity: {
-      type: Number,
-      required: true,
-    },
-    subTotal: {
-      type: Number,
-    },
+    order: [orderSchema],
   },
   { timestamps: { createdAt: true } }
 );
