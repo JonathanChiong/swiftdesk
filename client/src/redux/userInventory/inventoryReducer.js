@@ -62,20 +62,19 @@ const userInventoryReducer = (state = initialState, action) => {
       });
       return { ...state, products: updatedProducts };
     case DEDUCT_STOCKS:
-      const updatedstocks = [];
+      const updatedQuantity = [];
 
-      action.payload.map((item) => {
-        const currProduct = state.products.find(
-          (i) => i.product === item.product
-        );
-        currProduct.stocks = currProduct.stocks - item.quantity;
-        updatedstocks.push(currProduct);
+      state.products.forEach((i) => {
+        action.payload.forEach((item) => {
+          if (item.product === i.product) {
+            i.stocks -= item.quantity;
+          }
+        });
+        updatedQuantity.push(i);
       });
       return {
-        ...state,
-        products: updatedstocks,
+        products: updatedQuantity,
       };
-
     default:
       return state;
   }
